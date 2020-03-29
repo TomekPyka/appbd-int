@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public string GetStudents({[FromQuery] string orderBy)
         {
-            return $"Anna, Marcin, Andrzej {orderBy}";
+            return $"Anna, Marcin, Zenon {orderBy}";
         }
 
         [HttpGet("{id}")]
