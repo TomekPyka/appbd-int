@@ -30,14 +30,17 @@ namespace WebApplication2
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.Use(async (context, next) =>
+            {
+                await next();
+                context.Response.Headers.Add("custom", "secret123");
+            });
 
             app.UseEndpoints(endpoints =>
             {
