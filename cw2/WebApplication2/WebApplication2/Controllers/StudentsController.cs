@@ -12,7 +12,7 @@ namespace WebApplication2.Controllers
     public class StudentsController : ControllerBase
     {
         [HttpGet]
-        public string GetStudents({[FromQuery] string orderBy)
+        public string GetStudents([FromQuery] string orderBy)
         {
             return $"Anna, Marcin, Zenon {orderBy}";
         }
@@ -22,7 +22,7 @@ namespace WebApplication2.Controllers
         {
             if (id == 1)
         {
-                return "Jan Kowalski";
+                return "Jan Pietrzak";
             }
             return "Nie znaleziono";
         }
